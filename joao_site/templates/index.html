@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1><u>PipBoy Store</u></h1>
+    <img id="vault_boy" src="{{ url_for('static', filename='images/vault-boy.png') }}" alt="Vault Boy" class="vault_img">
+    <p>Gear up for the post-apocalyptic future with top-notch gear at PipBoy Store: where survival meets innovation!</p>
+    <a href="{{ url_for('func_produtos') }}" id="shopping_link"><button id="shopping_button">Go shopping!</button></a>
+{% endblock %}

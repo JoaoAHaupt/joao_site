@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>PRODUTOS!</h1>
-    {% for produto in produtos%}
-        <h2>{{produto.nome}}</h2>
-        <p>{{produto.descricao}}</p>
-    {% endfor %}
+{% extends "base.html" %}
+
+{% block content %}
+    <header><h1>Products</h1></header>
     
-</body>
-</html>
+    {% for produto in produtos %}
+        <div class="produto">
+            <a href="{{ url_for('detalhe_produto', nome_produto=produto.nome) }}"><h2><u>{{ produto.nome }}</u></h2></a>
+            <img id="vault_img" src="{{ url_for('static', filename='images/' + produto.nome + '.png') }}" alt="{{ produto.nome }}"/>
+            <h2>{{ produto.preco }}</h2>
+            <p>{{ produto.descricao[:120] + "..." }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
