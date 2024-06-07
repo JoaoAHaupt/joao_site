@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <header><h1>{{produto.nome}}</h1></header>
-    <p>{{produto.descricao}}</p>
+    {% if produto == None %}
+        <header><h1>Product didn't find</h1></header>
+    {% else %}
+        <header><h1>{{produto.nome}}</h1></header>
+        <p>{{produto.descricao}}</p>
+    {% endif %}
+
     
 {% endblock %}

@@ -1,14 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <header><h1>Products</h1></header>
-    
+<header><h1>Products</h1></header>
+{% if tipos %}
+    <div style="display: flex; gap: 10px;">  
+        {% for tipo in tipos %}
+            <p>{{ tipo.capitalize() }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<div>
+    <form id="filter-form" action="{{ url_for('func_produtos') }}" method="get">
+        <label>
+            <input type="checkbox" name="tipo" value="food">Food
+        </label>
+        <label>
+            <input type="checkbox" name="tipo" value="gun">Guns
+        </label>
+        <label>
+            <input type="checkbox" name="tipo" value="armor">Armor
+        </label>
+        <button id="filter" type="submit">Filter</button>
+    </form>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center;"> <!-- Adicione 'display: flex; flex-wrap: wrap; justify-content: center;' para alinhar horizontalmente -->
     {% for produto in produtos %}
         <div class="produto">
-            <a href="{{ url_for('detalhe_produto', nome_produto=produto.nome) }}"><h2><u>{{ produto.nome }}</u></h2></a>
+            <a href="{{ url_for('detalhe_produto', nome_produto=produto.nome) }}">
+                <h2><u>{{ produto.nome }}</u></h2>
+            </a>
             <img id="vault_img" src="{{ url_for('static', filename='images/' + produto.nome + '.png') }}" alt="{{ produto.nome }}"/>
-            <h2>{{ produto.preco }}</h2>
-            <p>{{ produto.descricao[:120] + "..." }}</p>
+            <div id="price_div">
+                <img src="{{url_for('static', filename='images/cap.png')}}"/>
+                <h2>{{ produto.preco }}</h2>
+            </div>
+            <p>{{ produto.descricao[:120] }}...</p>
         </div>
     {% endfor %}
+</div>
+
 {% endblock %}
