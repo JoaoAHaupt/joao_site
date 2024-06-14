@@ -5,7 +5,15 @@
         <header><h1>Product didn't find</h1></header>
     {% else %}
         <header><h1>{{produto.nome}}</h1></header>
-        <p>{{produto.descricao}}</p>
+        
+        <div id="produto_descricao">  
+            <p id="descricao_p">{{produto.descricao}}</p>    
+
+            <img src="{{ url_for('static', filename='images/' + produto.nome + '.png') }}"/>
+
+        </div>
+
+        
     {% endif %}
 
     
