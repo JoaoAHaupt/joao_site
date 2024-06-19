@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 lista_produtos = [
     {
         "id": 0,
-        "nome": "Sugar bombs",
+        "nome": "Sugar Bombs",
         "descricao": "Marketed across the United States as having an explosive great taste, the Sugar Bombs contain no explosives, but an overabundance of sugar frosting on each of the uniquely shaped wheat cereals, resembling the Fat Man, or perhaps more relevantly, a mini nuke. Served with milk, it made for a breakfast full of carbohydrates and little else. It was marketed at children, with added promotions to increase sales, such as Captain Cosmos decoder rings",
         "preco": 23,
         "tipo": "food"
@@ -39,7 +39,23 @@ lista_produtos = [
 def index():
     return render_template('index.html')
 
-@app.route("/produtos")
+@app.route("/produtos/cadastro")
+def cadastro():
+    return render_template('cadastro.html')
+
+@app.route("/produtos", methods=['POST'])
+def cadastrar_produto():
+    nome = request.form['name']
+    descricao = request.form['description']
+    preco = request.form['price']
+    tipo = request.form['type']
+
+    produto = {"nome": nome, "descricao": descricao, "preco":preco, "tipo":tipo}
+    lista_produtos.append(produto)
+    return redirect(url_for("func_produtos"))
+
+
+@app.route("/produtos", methods=["GET"])
 def func_produtos():
     tipo = request.args.getlist('tipo')
     if tipo:

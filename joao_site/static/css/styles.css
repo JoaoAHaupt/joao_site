@@ -212,3 +212,61 @@ label input{
 #descricao_p {
     text-align:left;
 }
+
+#ir_cadastro_button{
+    width: 70%;
+    height: 100px;
+    background-color: #0000007a;
+    color: #00ee0023;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+    border: none;
+    font-family: "Press Start 2P", system-ui;
+    padding: 12px;
+    margin: 23px;
+    font-size: 20px;
+}
+
+#ir_cadastro_button:hover{
+    color: #00ee00;
+
+    font-size: 25px;
+    border-style: double;
+}
+
+#cadastrar_produtos_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#botao_cadastro{
+    width: 70%;
+    height: 100px;
+    background-color: #000000c5;
+    color: #00ee00;
+    cursor: pointer;
+    transition: all 400ms ease-in-out;
+    border: none;
+    font-family: "Press Start 2P", system-ui;
+    padding: 12px;
+    margin: 23px;
+    font-size: 20px;
+}
+
+#register_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 60%;
+    padding: 2rem;
+}
+
+#div_type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}

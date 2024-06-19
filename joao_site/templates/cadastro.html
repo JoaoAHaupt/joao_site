@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="register_div">
+        <form action="/produtos" method="post" id="cadastrar_produtos_form">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description">
+
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price">
+
+            <label for="type">Type</label>
+            <div id="div_type">
+                <input type="radio" id="type" name="type" value="food"> Food <br>
+                <input type="radio" id="type" name="type" value="gun"> Gun <br>
+                <input type="radio" id="type" name="type" value="armor"> Armor <br>
+            </div>
+            
+            
+
+            <label for="imagem">Image</label>
+            <input type="file" id="imagem" name="imagem">
+
+
+            <button type="submit" id="botao_cadastro">Register</button>
+
+        </form>
+    
+    </div>
+        
+{% endblock %}
