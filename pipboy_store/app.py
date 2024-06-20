@@ -37,6 +37,7 @@ lista_produtos = [
 
 @app.route("/")
 def index():
+    
     return render_template('index.html')
 
 @app.route("/produtos/cadastro")
@@ -50,7 +51,7 @@ def cadastrar_produto():
     preco = request.form['price']
     tipo = request.form['type']
 
-    produto = {"nome": nome, "descricao": descricao, "preco":preco, "tipo":tipo}
+    produto = {"id":len(lista_produtos), "nome": nome, "descricao": descricao, "preco":preco, "tipo":tipo}
     lista_produtos.append(produto)
     return redirect(url_for("func_produtos"))
 
