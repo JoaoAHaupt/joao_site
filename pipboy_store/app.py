@@ -107,4 +107,4 @@ def tipo_produto(tipo_produto):
     return render_template('produtos.html', produtos=produtos_tipo)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8001)
+    app.run(debug=True, port=8080)
