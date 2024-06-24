@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div id="register_div">
+        <form action="/cnpj-validar" method="post">
+
+            <label for="cnpj">CNPJ</label>
+            <input type="text" id="cnpj" name="cnpj">
+ 
+
+            <button type="submit" id="botao_cadastro">Validate cnpj</button>
+            {{cnpj}}
+        </form>
+    
+    </div>
+        
+{% endblock %}

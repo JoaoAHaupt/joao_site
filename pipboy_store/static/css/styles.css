@@ -270,3 +270,18 @@ label input{
     justify-content: center;
     margin: 10px;
 }
+
+nav{
+    background-color: #00ee0023;
+    
+}
+
+#lepo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lepo a{
+    margin: 1rem;
+}   

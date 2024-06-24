@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+from validate_docbr import CPF,CNPJ
 
 app = Flask(__name__)
 lista_produtos = [
@@ -40,6 +41,34 @@ def index():
     
     return render_template('index.html')
 
+@app.route("/cpf-validar", methods=['POST', 'GET'])
+def cpf_validacao():
+    if request.method == 'POST':
+        cpf_obj = CPF()
+        form_cpf = request.form['cpf']
+        return render_template('cpf-validar.html', cpf = cpf_obj.validate(form_cpf))
+    else:
+        return render_template('cpf-validar.html', cpf = "")
+
+@app.route("/cnpj-validar", methods=['POST', 'GET'])
+def cnpj_validacao():
+    if request.method == 'POST':
+        cnpj_obj = CNPJ()
+        form_cnpj = request.form['cnpj']
+        return render_template('cnpj-validar.html', cnpj = cnpj_obj.validate(form_cnpj))
+    else:
+        return render_template('cnpj-validar.html', cnpj = "")
+
+@app.route("/cnpj-gerador")
+def cpf_gerador():
+    cnpj_obj = CNPJ()
+    return render_template('cnpj-gerador.html', cnpj = cnpj_obj.generate(mask=True))
+
+@app.route("/cpf-gerador")
+def cnpj_gerador():
+    cpf_obj = CPF()
+    return render_template('cpf-gerador.html', cpf = cpf_obj.generate(mask=True))
+
 @app.route("/produtos/cadastro")
 def cadastro():
     return render_template('cadastro.html')
@@ -78,4 +107,4 @@ def tipo_produto(tipo_produto):
     return render_template('produtos.html', produtos=produtos_tipo)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8001)
