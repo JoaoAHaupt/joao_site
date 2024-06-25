@@ -38,7 +38,6 @@ lista_produtos = [
 
 @app.route("/")
 def index():
-    
     return render_template('index.html')
 
 @app.route("/cpf-validar", methods=['POST', 'GET'])

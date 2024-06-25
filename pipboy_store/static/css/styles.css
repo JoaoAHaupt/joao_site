@@ -273,7 +273,9 @@ label input{
 
 nav{
     background-color: #00ee0023;
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 #lepo{
@@ -300,4 +302,27 @@ nav a{
     font-style: normal;
     color: #00ee00;
     text-shadow: 0px 0px 10px #00ee00; 
+}
+
+.registros_div h2{
+    color: #00ee00;
+    text-shadow: 0px 0px 10px #011001; 
+}
+
+.registros_div button{
+    font-family: "Press Start 2P", system-ui;
+
+    color: #00ee00;
+    text-shadow: 0px 0px 10px #00ee00; 
+    background-color: #011001;
+    cursor: pointer;
+    border-style:double;
+    border-color: #00ee00;
+    font-size: 1rem;
+    padding: 1rem;
+    transition: all 200ms ease-in-out;
+    margin: 2rem;
+}
+.registros_div button:hover{
+    font-size: larger;
 }
